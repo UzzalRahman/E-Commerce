@@ -1,0 +1,31 @@
+#dashboard {
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+  .card {
+    width: 30%;
+    flex-wrap: wrap;
+    min-width: 250px;
+    margin-bottom: 45px;
+    .product-title {
+    }
+    .product-image {
+      background-color: rgb(229, 237, 237);
+      height: 200px;
+    }
+    .product-description {
+    }
+    .product-detail {
+      position: absolute;
+      margin-top: 85px;
+      margin-left: 23%;
+      opacity: 0.5;
+    }
+    .product-detail:hover {
+      opacity: 1;
+    }
+  }
+  .mat-card {
+  }
+}

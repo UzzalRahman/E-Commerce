@@ -1,0 +1,28 @@
+<div id="header">
+  <mat-toolbar fxLayout="row">
+    <div class="selise-logo"></div>
+
+    <div class="menu">
+      <div class="menu-item" fxLayoutGap="30px">
+        <a class="dashboard">Dashboard</a>
+        <a class="product">Product</a>
+        <a class="my-cart">My Cart</a>
+      </div>
+    </div>
+
+    <div
+      class="right-side-elements"
+      matBadge="{{ cartValue }}"
+      matBadgeOverlap="false"
+    >
+      <div>
+        <img
+          matBadge="4"
+          matBadgeOverlap="false"
+          class="cart-icon"
+          src="https://e7.pngegg.com/pngimages/15/271/png-clipart-computer-icons-online-shopping-shopping-cart-service-shopping-cart-icon-text-service-thumbnail.png"
+        />
+      </div>
+    </div>
+  </mat-toolbar>
+</div>

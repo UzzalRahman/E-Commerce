@@ -1,0 +1,45 @@
+#header {
+  .mat-toolbar {
+    background-color: #fefefe;
+    height: 72px;
+    width: 100%;
+    padding: 5px 30px;
+    box-shadow: 0px 1px 10px 1px;
+    flex-wrap: wrap;
+    font-size: medium;
+    font-weight: 200;
+    opacity: 0.7;
+    justify-content: space-between;
+    .selise-logo {
+      background-image: url(https://az-cdn.selise.biz/selisecdn/cdn/arc2/arc2-logo.svg);
+      height: 60px;
+      width: 136px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .menu {
+      .menu-item {
+        .dashboard:hover,
+        .product:hover,
+        .my-cart:hover {
+          color: #4169e1;
+        }
+        .dashboard:active,
+        .product:active,
+        .my-cart:active {
+          color: #4169e1;
+        }
+      }
+    }
+    .cart-icon {
+      height: 35px;
+      width: 35px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .right-side-elements {
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+  }
+}

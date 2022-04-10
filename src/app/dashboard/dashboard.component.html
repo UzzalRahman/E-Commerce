@@ -1,0 +1,18 @@
+<div id="dashboard">
+  <div fxLayout="row wrap" fxLayoutGap="30px">
+    <div *ngFor="let prod of products" class="card">
+      <mat-card>
+        <mat-card-title fxLayoutAlign="center center" class="product-title">{{
+          prod.title
+        }}</mat-card-title>
+        <button class="product-detail" mat-raised-button>Show detail</button>
+        <img mat-card-image src="{{ prod.image }}" class="product-image" />
+        <mat-card-content class="product-description">{{
+          prod.description
+        }}</mat-card-content>
+
+        <mat-card-footer>quantity</mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>
