@@ -1,17 +1,35 @@
 <div id="dashboard">
   <div fxLayout="row wrap" fxLayoutGap="30px">
-    <div *ngFor="let prod of products" class="card">
+    <div *ngFor="let product of products; index as i" class="card">
       <mat-card>
         <mat-card-title fxLayoutAlign="center center" class="product-title">{{
-          prod.title
+          product.title
         }}</mat-card-title>
-        <button class="product-detail" mat-raised-button>Show detail</button>
-        <img mat-card-image src="{{ prod.image }}" class="product-image" />
-        <mat-card-content class="product-description">{{
-          prod.description
-        }}</mat-card-content>
+        <div class="hide">
+          <button
+            (click)="goToRoute(product)"
+            class="product-detail"
+            mat-raised-button
+          >
+            Show detail
+          </button>
+        </div>
+        <img mat-card-image src="{{ product.image }}" class="product-image" />
+        <mat-card-content
+          fxLayoutAlign="center center"
+          class="product-description"
+        >
+          Price: {{ product.price }} BDT</mat-card-content
+        >
 
-        <mat-card-footer>quantity</mat-card-footer>
+        <mat-card-content fxLayoutAlign="center center"
+          >Available Quantity: {{ product.availableQuantity }}</mat-card-content
+        >
+        <mat-card-content [hidden]="!alreadyAdded" fxLayoutAlign="center center"
+          ><button (click)="addToCart(i)" mat-raised-button class="add-to-cart">
+            ADD TO CART
+          </button></mat-card-content
+        >
       </mat-card>
     </div>
   </div>

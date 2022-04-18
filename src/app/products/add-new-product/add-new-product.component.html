@@ -1,0 +1,61 @@
+<div id="products">
+  <h2 class="title">Create Product</h2>
+  <div>
+    <form
+      [formGroup]="addProduct"
+      class="createProduct"
+      (ngSubmit)="addNewProduct()"
+    >
+      <!-- <div fxLayout="row" fxLayoutGap="20px"> -->
+      <mat-form-field class="form-group" appearance="fill" class="productName">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="productName" class="form-control" />
+      </mat-form-field>
+
+      <mat-form-field class="form-group" appearance="fill" class="productPrice">
+        <mat-label>Product Price</mat-label>
+        <input matInput formControlName="productPrice" class="form-control" />
+      </mat-form-field>
+
+      <mat-form-field
+        class="form-group"
+        appearance="fill"
+        class="productQuantity"
+      >
+        <mat-label>productQuantity</mat-label>
+        <input
+          matInput
+          formControlName="productQuantity"
+          class="form-control"
+        />
+      </mat-form-field>
+
+      <mat-form-field
+        class="form-group"
+        appearance="fill"
+        class="productDescription"
+      >
+        <mat-label>productDescription</mat-label>
+        <input
+          matInput
+          formControlName="productDescription"
+          class="form-control"
+        />
+      </mat-form-field>
+
+      <mat-form-field
+        class="form-group"
+        appearance="fill"
+        class="productImageLink"
+      >
+        <mat-label>productImageLink</mat-label>
+        <input
+          matInput
+          formControlName="productImageLink"
+          class="form-control"
+        />
+      </mat-form-field>
+      <button mat-raised-button class="save-button">Save</button>
+    </form>
+  </div>
+</div>

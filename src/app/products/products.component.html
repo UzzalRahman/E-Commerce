@@ -1,1 +1,51 @@
-<p>products works!</p>
+<div id="products">
+  <div class="header">
+    <h2>Product List</h2>
+    <button
+      (click)="goToAddProduct()"
+      mat-raised-button
+      class="add-new-product-button"
+    >
+      add new product
+    </button>
+  </div>
+  <table mat-table [dataSource]="productList" class="show-products">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>title</th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.availableQuantity }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)="deleteProduct(element)"> <mat-icon>delete</mat-icon></a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit">
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon>edit</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

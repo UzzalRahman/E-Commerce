@@ -4,9 +4,9 @@
 
     <div class="menu">
       <div class="menu-item" fxLayoutGap="30px">
-        <a class="dashboard">Dashboard</a>
-        <a class="product">Product</a>
-        <a class="my-cart">My Cart</a>
+        <a (click)="GoToRoute('../dashboard')" class="dashboard">Dashboard</a>
+        <a (click)="GoToRoute('../product')" class="product">Product</a>
+        <a (click)="GoToRoute('../cart')" class="my-cart">My Cart</a>
       </div>
     </div>
 
@@ -15,14 +15,17 @@
       matBadge="{{ cartValue }}"
       matBadgeOverlap="false"
     >
-      <div>
+      <div [matMenuTriggerFor]="beforeMenu">
         <img
-          matBadge="4"
-          matBadgeOverlap="false"
           class="cart-icon"
           src="https://e7.pngegg.com/pngimages/15/271/png-clipart-computer-icons-online-shopping-shopping-cart-service-shopping-cart-icon-text-service-thumbnail.png"
         />
       </div>
+      <mat-menu class="cartItemMenu" #beforeMenu="matMenu" xPosition="before">
+        <ol>
+          <li *ngFor="let product of productList">{{ product.title }}</li>
+        </ol>
+      </mat-menu>
     </div>
   </mat-toolbar>
 </div>

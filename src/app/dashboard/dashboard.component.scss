@@ -3,27 +3,46 @@
   margin-left: 10%;
   margin-right: 10%;
   position: relative;
+  flex-flow: column;
   .card {
     width: 30%;
     flex-wrap: wrap;
     min-width: 250px;
+    max-width: 300px;
     margin-bottom: 45px;
     .product-title {
+      // overflow: hidden;
+      // white-space: nowrap;
+      min-height: 40px;
+      display: inline-block;
     }
+    .hide {
+      display: none !important;
+    }
+
     .product-image {
       background-color: rgb(229, 237, 237);
-      height: 200px;
+      height: 300px;
     }
+    .product-image:hover + .hide {
+      opacity: 0.3;
+      display: block !important;
+    }
+
     .product-description {
     }
     .product-detail {
       position: absolute;
-      margin-top: 85px;
+      margin-top: 47%;
       margin-left: 23%;
       opacity: 0.5;
     }
     .product-detail:hover {
       opacity: 1;
+    }
+    .add-to-cart {
+      background-color: #149aec;
+      color: white;
     }
   }
   .mat-card {

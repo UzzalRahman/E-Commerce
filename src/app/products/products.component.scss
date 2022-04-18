@@ -1,0 +1,21 @@
+#products {
+  width: 100%;
+  .header {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2% auto;
+    .add-new-product-button {
+      background-color: #149aec;
+      color: white;
+    }
+  }
+  .show-products {
+    width: 80%;
+    box-shadow: 0px 0px 1px 0px;
+    margin: 2% auto;
+  }
+  a:hover {
+    background-color: blue !important;
+  }
+}
