@@ -19,6 +19,7 @@ export class AddNewProductComponent implements OnInit {
     image: '',
     price: 0,
     availableQuantity: 0,
+    totalQuantity: 0,
   };
   constructor(
     private _productListService: ProductListService,
@@ -53,6 +54,7 @@ export class AddNewProductComponent implements OnInit {
     this.newItem.availableQuantity = this.addProduct.value.productQuantity;
     this.newItem.description = this.addProduct.value.productDescription;
     this.newItem.image = this.addProduct.value.productImageLink;
+    this._productListService.sendProductList(this.newItem, 'Add');
     this._route.navigate(['./product']);
   }
 }

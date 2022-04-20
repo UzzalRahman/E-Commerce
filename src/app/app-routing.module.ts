@@ -1,3 +1,4 @@
+import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { AddNewProductComponent } from './products/add-new-product/add-new-product.component';
 import { ProductDetailComponent } from './dashboard/product-detail/product-detail.component';
 import { CartComponent } from './cart/cart.component';
@@ -28,6 +29,10 @@ export const appRoute: Routes = [
   {
     path: 'add-product',
     component: AddNewProductComponent,
+  },
+  {
+    path: 'edit-product',
+    component: EditProductComponent,
   },
 
   {

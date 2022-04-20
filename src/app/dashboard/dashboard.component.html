@@ -5,16 +5,18 @@
         <mat-card-title fxLayoutAlign="center center" class="product-title">{{
           product.title
         }}</mat-card-title>
-        <div class="hide">
-          <button
-            (click)="goToRoute(product)"
-            class="product-detail"
-            mat-raised-button
-          >
-            Show detail
-          </button>
+        <div class="ImageAndClickButton">
+          <div class="hide">
+            <button
+              (click)="goToRoute(product)"
+              class="product-detail"
+              mat-raised-button
+            >
+              Show detail
+            </button>
+          </div>
+          <img mat-card-image src="{{ product.image }}" class="product-image" />
         </div>
-        <img mat-card-image src="{{ product.image }}" class="product-image" />
         <mat-card-content
           fxLayoutAlign="center center"
           class="product-description"
@@ -25,11 +27,43 @@
         <mat-card-content fxLayoutAlign="center center"
           >Available Quantity: {{ product.availableQuantity }}</mat-card-content
         >
-        <mat-card-content [hidden]="!alreadyAdded" fxLayoutAlign="center center"
-          ><button (click)="addToCart(i)" mat-raised-button class="add-to-cart">
-            ADD TO CART
-          </button></mat-card-content
-        >
+        <div>
+          <mat-card-content
+            *ngIf="product.totalQuantity == product.availableQuantity"
+            fxLayoutAlign="center center"
+          >
+            <button
+              (click)="addToCart(i)"
+              mat-raised-button
+              class="add-to-cart"
+            >
+              ADD TO CART
+            </button>
+          </mat-card-content>
+
+          <mat-card-content
+            *ngIf="product.totalQuantity != product.availableQuantity"
+            fxLayoutAlign="center center"
+          >
+            <button
+              (click)="removeFromCart(i)"
+              mat-raised-button
+              class="minus-button"
+            >
+              -
+            </button>
+            <button mat-raised-button class="items-in-cart">
+              {{ product.totalQuantity - product.availableQuantity }}
+            </button>
+            <button
+              (click)="addToCart(i)"
+              mat-raised-button
+              class="plus-button"
+            >
+              +
+            </button>
+          </mat-card-content>
+        </div>
       </mat-card>
     </div>
   </div>

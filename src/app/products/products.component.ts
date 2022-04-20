@@ -14,17 +14,20 @@ export class ProductsComponent implements OnInit {
   constructor(
     private route: Router,
     private _productListService: ProductListService
-  ) {
-    this.productList = this._productListService.getProducts();
-  }
+  ) {}
   dataSource = this.productList;
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._productListService._productList$.subscribe((products) => {
+      this.productList = [...products];
+    });
+  }
   goToAddProduct() {
     this.route.navigate(['./add-product']);
   }
   deleteProduct(product: ProductList) {
-    console.log(product.title);
-    const index = this.productList.indexOf(product, 0);
-    this.productList.splice(index, 1);
+    this._productListService.sendProductList(product, 'Delete');
+  }
+  editProduct(product: ProductList) {
+    this.route.navigate(['./edit-product']);
   }
 }

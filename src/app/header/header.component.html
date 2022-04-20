@@ -23,8 +23,10 @@
       </div>
       <mat-menu class="cartItemMenu" #beforeMenu="matMenu" xPosition="before">
         <ol>
-          <li *ngFor="let product of productList">{{ product.title }}</li>
+          <li *ngFor="let item of cartItem">{{ item.title }}</li>
+          <li>{{ showCartItem() }}</li>
         </ol>
+        <h3>Total Amount: BDT {{ totalPrice }}</h3>
       </mat-menu>
     </div>
   </mat-toolbar>

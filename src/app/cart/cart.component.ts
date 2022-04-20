@@ -1,6 +1,7 @@
 import { CartService } from './../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../interface/interface.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -8,20 +9,29 @@ import { Cart } from '../interface/interface.component';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
+  subscription: Subscription = new Subscription();
   cartItem: Cart[] = [];
   constructor(private _cartService: CartService) {}
 
   ngOnInit(): void {
-    this._cartService._cartItem$.subscribe((cart) => {
+    let sub = this._cartService._cartItem.subscribe((cart) => {
       this.cartItem = cart;
-      console.log('cart inside ng ', this.cartItem.length);
+      // console.log('Inside Cart ', cart.length);
+      // for (let item of cart) {
+      //   console.log(item);
+      // }
     });
+    this.subscription.add(sub);
   }
+
   showCartItem() {
-    this._cartService._cartItem$.subscribe((cart) => {
-      this.cartItem = cart;
-      console.log('cart inside fn ', this.cartItem.length);
-    });
-    console.log('cart outside ng ', this.cartItem.length);
+    // console.log('Outside Cart ', this.cartItem.length);
+    // for (let item of this.cartItem) {
+    //   console.log(item);
+    // }
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    console.log('Unsubscribe');
   }
 }

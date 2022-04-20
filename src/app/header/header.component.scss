@@ -36,10 +36,17 @@
       width: 136px;
       background-repeat: no-repeat;
       background-size: cover;
+      cursor: pointer;
     }
     .menu {
       margin-left: -10%;
       .menu-item {
+        .dashboard,
+        .product,
+        .my-cart {
+          color: #4169e1;
+          cursor: pointer;
+        }
         .dashboard:hover,
         .product:hover,
         .my-cart:hover {
@@ -61,6 +68,7 @@
     .right-side-elements {
       margin-top: 10px;
       margin-right: 10px;
+      cursor: pointer;
       .cartItemMenu {
         height: 500px !important;
         width: 500px !important;

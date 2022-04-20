@@ -5,6 +5,7 @@ export interface ProductList {
   image: string;
   price: number;
   availableQuantity: number;
+  totalQuantity: number;
 }
 export interface Cart extends ProductList {
   action: string;
