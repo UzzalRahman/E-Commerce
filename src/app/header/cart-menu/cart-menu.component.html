@@ -1,0 +1,45 @@
+<div id="cart-menu">
+  <div
+    class="right-side-elements"
+    matBadge="{{ cartValue }}"
+    matBadgeOverlap="false"
+  >
+    <div [matMenuTriggerFor]="beforeMenu">
+      <img
+        class="cart-icon"
+        src="https://e7.pngegg.com/pngimages/15/271/png-clipart-computer-icons-online-shopping-shopping-cart-service-shopping-cart-icon-text-service-thumbnail.png"
+      />
+    </div>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <div (click)="$event.stopPropagation()">
+        <div class="menu-header">
+          <h2 class="title">Your Cart</h2>
+          <!-- <button mat-stroked-button class="close-button">close</button> -->
+        </div>
+        <div class="menu-items" *ngFor="let item of cartItem; index as i">
+          <div class="menu-item" fxLayoutGap="30px">
+            <img
+              class="item-image"
+              fxLayoutAlign="center"
+              src="{{ item.image }}"
+            />
+            <div class="description">
+              <p class="item-title">{{ item.title }}</p>
+              <p class="item-price">Price: {{ item.price }}</p>
+              <div>
+                <button (click)="removeFromCart(i)" class="minus-button">
+                  -
+                </button>
+                <span class="item-in-cart">{{
+                  item.totalQuantity - item.availableQuantity
+                }}</span>
+                <button (click)="addToCart(i)" class="plus-button">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Total Amount: BDT {{ totalPrice }}</h3>
+      </div>
+    </mat-menu>
+  </div>
+</div>

@@ -10,24 +10,8 @@
       </div>
     </div>
 
-    <div
-      class="right-side-elements"
-      matBadge="{{ cartValue }}"
-      matBadgeOverlap="false"
-    >
-      <div [matMenuTriggerFor]="beforeMenu">
-        <img
-          class="cart-icon"
-          src="https://e7.pngegg.com/pngimages/15/271/png-clipart-computer-icons-online-shopping-shopping-cart-service-shopping-cart-icon-text-service-thumbnail.png"
-        />
-      </div>
-      <mat-menu class="cartItemMenu" #beforeMenu="matMenu" xPosition="before">
-        <ol>
-          <li *ngFor="let item of cartItem">{{ item.title }}</li>
-          <li>{{ showCartItem() }}</li>
-        </ol>
-        <h3>Total Amount: BDT {{ totalPrice }}</h3>
-      </mat-menu>
+    <div>
+      <app-cart-menu class="cart-item-menu"></app-cart-menu>
     </div>
   </mat-toolbar>
 </div>

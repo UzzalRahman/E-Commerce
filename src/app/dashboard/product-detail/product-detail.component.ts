@@ -18,11 +18,11 @@ export class ProductDetailComponent implements OnInit {
   cart: Cart[];
   cartItem: Cart;
   constructor(
-    service: ProductListService,
+    _productListService: ProductListService,
     cartService: CartService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.products = service.getProducts();
+    this.products = _productListService.getProducts();
   }
 
   ngOnInit(): void {

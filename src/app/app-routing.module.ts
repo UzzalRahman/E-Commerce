@@ -31,7 +31,7 @@ export const appRoute: Routes = [
     component: AddNewProductComponent,
   },
   {
-    path: 'edit-product',
+    path: 'product/:id/edit-product',
     component: EditProductComponent,
   },
 

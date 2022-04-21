@@ -23,20 +23,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._cartService._cartValue.subscribe((value) => {
-      this.cartValue = value;
-    });
     this._cartService._cartItem.subscribe((cart) => {
       this.cartItem = cart;
     });
-    this._cartService._cartPrice.subscribe((price) => {
-      this.totalPrice = price;
-    });
   }
-  showCartItem() {
-    for (let item of this.cartItem) {
-    }
-  }
+
   GoToRoute(new_route: string) {
     this.route.navigate([new_route]);
   }

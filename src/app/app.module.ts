@@ -27,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { DeleteProductComponent } from './products/delete-product/delete-product.component';
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { CartMenuComponent } from './header/cart-menu/cart-menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { MatMenuModule } from '@angular/material/menu';
     AddNewProductComponent,
     DeleteProductComponent,
     EditProductComponent,
+    CartMenuComponent,
   ],
   imports: [
     BrowserModule,

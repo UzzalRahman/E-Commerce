@@ -59,9 +59,10 @@ export class ProductListService {
       this.products[index].image = newItem.image;
       this.products[index].price = newItem.price;
       this.products[index].title = newItem.title;
-    } else if (action == 'add to cart') {
+      this.products[index].totalQuantity = newItem.totalQuantity;
+    } else if (action == 'addToCart') {
       this.products[index].availableQuantity--;
-    } else if (action == 'remove from cart') {
+    } else if (action == 'removeFromCart') {
       this.products[index].availableQuantity++;
     }
     this._productListSource.next(this.products);

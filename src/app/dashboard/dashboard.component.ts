@@ -12,17 +12,6 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   products: ProductList[];
   alreadyAdded: boolean = true;
-  newItem: Cart = {
-    id: '',
-    action: '',
-    TotalItemInCart: 0,
-    title: '',
-    description: '',
-    image: '',
-    price: 0,
-    availableQuantity: 0,
-    totalQuantity: 0,
-  };
   isImageHovered: boolean;
   cartValue: number;
   cartItem: Cart;
@@ -35,51 +24,41 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  goToRoute(_route: ProductList) {
-    this.route.navigate(['./dashboard/' + _route.id + '/product-detail']);
+  goToRoute(product: ProductList) {
+    this.route.navigate(['./dashboard/' + product.id + '/product-detail']);
   }
-  assignToCart(index: number, _totalItemInCart) {
+  assignToCart(index: number, _action) {
     let newItem: Cart = {
       id: this.products[index].id,
-      action: 'Add',
-      TotalItemInCart: 0,
+      action: _action,
+      TotalItemInCart: 1,
       title: this.products[index].title,
-      description: '',
-      image: '',
-      price: 0,
+      description: this.products[index].description,
+      image: this.products[index].image,
+      price: this.products[index].price,
       availableQuantity: this.products[index].availableQuantity,
-      totalQuantity: 0,
+      totalQuantity: this.products[index].totalQuantity,
     };
     return newItem;
-    // this.newItem.TotalItemInCart = 1;
-    // this.newItem.action = 'Add';
-    // this.newItem.id = this.products[index].id;
-    // this.newItem.title = this.products[index].title;
-    // this.newItem.availableQuantity = this.products[index].availableQuantity;
-    // this.newItem.description = this.products[index].description;
-    // this.newItem.image = this.products[index].image;
-    // this.newItem.price = this.products[index].price;
-    // this.newItem.totalQuantity = this.products[index].totalQuantity;
   }
   addToCart(index: number) {
     if (this.products[index].availableQuantity != 0) {
-      this._productservice.sendProductList(this.products[index], 'add to cart');
-      // this.assignToCart(index);
-      // let cartItem: Cart = this.products[index];
-      // this.cart.push(cartItem);
+      this._productservice.sendProductList(this.products[index], 'addToCart');
       this.cartService.sendCartValue(true);
-      let item = this.assignToCart(index, 1);
+      let item = this.assignToCart(index, 'Add');
       this.cartService.sendCartItem(item);
 
-      this.cartService.sendCartPrice();
+      this.cartService.sendCartPrice(this.products[index].price, true);
     }
   }
   removeFromCart(index: number) {
     this._productservice.sendProductList(
       this.products[index],
-      'remove from cart'
+      'removeFromCart'
     );
-    this.cartService.sendCartItem(this.newItem);
-    this.cartService.sendCartPrice();
+    let item = this.assignToCart(index, 'Delete');
+    this.cartService.sendCartItem(item);
+    this.cartService.sendCartPrice(this.products[index].price, false);
+    this.cartService.sendCartValue(false);
   }
 }

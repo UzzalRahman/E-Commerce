@@ -1,0 +1,72 @@
+::ng-deep {
+  .mat-menu-content {
+    min-width: 280px;
+    .menu-header {
+      border-radius: 2px;
+      border-bottom: 2px solid #efefef;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      .title {
+        color: #4181e9;
+        display: inline;
+        margin: 0;
+        padding-left: 5%;
+        padding-top: 4px;
+        margin-bottom: 15px;
+      }
+      .close-button {
+        padding: 0px !important;
+        margin-bottom: 15px;
+        margin-right: 5px !important;
+      }
+    }
+    .menu-items {
+      border-radius: 2px;
+      border-bottom: 2px solid #efefef;
+      margin-bottom: 20px;
+      .menu-item {
+        margin-right: 5px;
+        display: flex;
+        margin-bottom: 20px;
+
+        .item-image {
+        } // why it's not working?
+        img {
+          width: 60px;
+          margin-left: 5%;
+        }
+        .description {
+          p,
+          span {
+            margin: 0;
+            padding-top: 0 !important;
+          }
+          .item-in-cart {
+            padding: 10px 10px;
+          }
+          .item-title {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    h3 {
+      color: #4181e9;
+      padding-left: 5%;
+    }
+  }
+}
+#cart-menu {
+  .right-side-elements {
+    margin-top: 15px;
+    margin-right: 30px;
+    cursor: pointer;
+    .cart-icon {
+      height: 45px;
+      width: 45px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}

@@ -28,6 +28,6 @@ export class ProductsComponent implements OnInit {
     this._productListService.sendProductList(product, 'Delete');
   }
   editProduct(product: ProductList) {
-    this.route.navigate(['./edit-product']);
+    this.route.navigate(['./product/' + product.id + '/edit-product']);
   }
 }

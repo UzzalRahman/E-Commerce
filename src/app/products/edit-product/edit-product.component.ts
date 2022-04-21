@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductList } from 'src/app/interface/interface.component';
 import { ProductListService } from 'src/app/services/product-list.service';
 
@@ -10,14 +10,16 @@ import { ProductListService } from 'src/app/services/product-list.service';
   styleUrls: ['./edit-product.component.scss'],
 })
 export class EditProductComponent implements OnInit {
-  @Input() currentProduct;
-
-  productList: ProductList[] = [];
+  products: ProductList[] = [];
+  product: ProductList;
+  productId: string;
+  productIndex: number;
   constructor(
     private _productListService: ProductListService,
-    private _route: Router
+    private _route: Router,
+    private _activatedRoute: ActivatedRoute
   ) {
-    this.productList = _productListService.getProducts();
+    this.products = _productListService.getProducts();
   }
   addProduct = new FormGroup({
     productName: new FormControl(''),
@@ -27,8 +29,14 @@ export class EditProductComponent implements OnInit {
     productImageLink: new FormControl(''),
   });
   ngOnInit(): void {
-    // this.initiateFormValue(this.currentProduct);
-    console.log(this.currentProduct);
+    this._activatedRoute.paramMap.subscribe((params) => {
+      this.productId = params.get('id');
+      this.productIndex = this.products.findIndex(
+        (x) => x.id == params.get('id')
+      );
+      this.product = this.products[this.productIndex];
+    });
+    this.initiateFormValue(this.product);
   }
 
   initiateFormValue(currentProduct: ProductList) {
@@ -44,13 +52,13 @@ export class EditProductComponent implements OnInit {
   }
 
   editProduct() {
-    this.currentProduct.title = this.addProduct.value.productName!;
-    this.currentProduct.price = this.addProduct.value.productPrice;
-    this.currentProduct.availableQuantity =
-      this.addProduct.value.productQuantity;
-    this.currentProduct.description = this.addProduct.value.productDescription;
-    this.currentProduct.image = this.addProduct.value.productImageLink;
-
+    this.product.title = this.addProduct.value.productName!;
+    this.product.price = this.addProduct.value.productPrice;
+    this.product.availableQuantity = this.addProduct.value.productQuantity;
+    this.product.description = this.addProduct.value.productDescription;
+    this.product.image = this.addProduct.value.productImageLink;
+    this.product.totalQuantity = this.addProduct.value.productQuantity;
+    this._productListService.sendProductList(this.product, 'Edit');
     this._route.navigate(['./product']);
   }
 }
