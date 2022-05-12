@@ -3,6 +3,7 @@ import { ProductList, Cart } from './../interface/interface.component';
 import { Component, OnInit } from '@angular/core';
 import { ProductListService } from '../services/product-list.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,16 +17,20 @@ export class DashboardComponent implements OnInit {
   cartValue: number;
   cartItem: Cart;
   constructor(
-    private _productservice: ProductListService,
-    private route: Router,
-    private cartService: CartService
+    private _snackBar: MatSnackBar,
+    private _productListService: ProductListService,
+    private _route: Router,
+    private _cartService: CartService
   ) {
-    this.products = _productservice.getProducts();
+    this.products = _productListService.getProducts();
   }
 
   ngOnInit(): void {}
   goToRoute(product: ProductList) {
-    this.route.navigate(['./dashboard/' + product.id + '/product-detail']);
+    this._route.navigate(['./dashboard/' + product.id + '/product-detail']);
+  }
+  openSnackBar(message: string) {
+    this._snackBar.open(message);
   }
   assignToCart(index: number, _action) {
     let newItem: Cart = {
@@ -43,22 +48,27 @@ export class DashboardComponent implements OnInit {
   }
   addToCart(index: number) {
     if (this.products[index].availableQuantity != 0) {
-      this._productservice.sendProductList(this.products[index], 'addToCart');
-      this.cartService.sendCartValue(true);
+      this._productListService.sendProductList(
+        this.products[index],
+        'addToCart'
+      );
+      this._cartService.sendCartValue(true);
       let item = this.assignToCart(index, 'Add');
-      this.cartService.sendCartItem(item);
+      this._cartService.sendCartItem(item);
 
-      this.cartService.sendCartPrice(this.products[index].price, true);
+      this._cartService.sendCartPrice(this.products[index].price, true);
+      this.openSnackBar('Selected Product Added to Cart.');
     }
   }
   removeFromCart(index: number) {
-    this._productservice.sendProductList(
+    this._productListService.sendProductList(
       this.products[index],
       'removeFromCart'
     );
     let item = this.assignToCart(index, 'Delete');
-    this.cartService.sendCartItem(item);
-    this.cartService.sendCartPrice(this.products[index].price, false);
-    this.cartService.sendCartValue(false);
+    this._cartService.sendCartItem(item);
+    this._cartService.sendCartPrice(this.products[index].price, false);
+    this._cartService.sendCartValue(false);
+    this.openSnackBar('Selected Product Removed from Cart.');
   }
 }

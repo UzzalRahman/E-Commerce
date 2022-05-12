@@ -28,6 +28,9 @@ import { DeleteProductComponent } from './products/delete-product/delete-product
 import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { CartMenuComponent } from './header/cart-menu/cart-menu.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SeliseContactsComponent } from './office/selise-contacts/selise-contacts.component';
+import { CalculatePriceComponent } from './office/calculate-price/calculate-price.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +43,8 @@ import { CartMenuComponent } from './header/cart-menu/cart-menu.component';
     DeleteProductComponent,
     EditProductComponent,
     CartMenuComponent,
+    SeliseContactsComponent,
+    CalculatePriceComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +63,7 @@ import { CartMenuComponent } from './header/cart-menu/cart-menu.component';
     MatTableModule,
     MatIconModule,
     MatMenuModule,
+    MatSnackBarModule,
   ],
   providers: [ProductListService, CartService],
   bootstrap: [AppComponent],

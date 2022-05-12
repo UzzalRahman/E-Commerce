@@ -1,0 +1,82 @@
+body{
+    margin:0 !important;
+    padding:0 !important;
+}
+#selise-contacts{
+    .mat-toolbar {  
+    background-color: #FFFFFF;
+    padding-left:10%;
+    height: 64px;
+    width: 100%;
+    box-shadow: 0px 0px 1px 0px;
+    flex-wrap: wrap;
+    font-size: medium;
+    font-weight: 200;
+    opacity: 0.7;
+    justify-content: space-between;
+        .selise-logo {
+        background-image: url(https://az-cdn.selise.biz/selisecdn/cdn/arc2/arc2-logo.svg);
+        
+        height: 43px;
+        width: 100px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        }
+    }
+    .toolbar{
+        height:64px;
+        // background-color: red;
+    }
+    .contacts-overview{
+        .material-icons{
+
+        }
+        .header{
+            padding-left:150px;
+            height:276px;
+            // background-color:blue;
+            .header-right{
+                padding-top:80px;
+                text-align: end;
+                padding-right: 150px;
+                .get-started-button{
+
+                }
+                p{
+                    padding-top:12px;
+                }
+            }
+        }
+    }
+    .main-content{
+        border:2px solid red;
+        height:1239px;
+        .general-overview{
+            width:35%;
+            // background-color:green;
+        }
+        .app-detail{
+            background-color: #F8F9F9;
+            height:436px;
+            width:15%;
+            padding:24px;
+            margin-right:10%;
+            margin-top:32px;
+            h5{
+                color:  #06375C;
+                font-weight: 700;
+                font-size: 14px;
+                margin-bottom: 4px;;
+            }
+            p{
+                font-weight: 400;
+                font-size: 16px;
+                margin-bottom:16px;
+            }
+        }
+    }
+    .price-calculation{
+        height:646px;
+    }
+}

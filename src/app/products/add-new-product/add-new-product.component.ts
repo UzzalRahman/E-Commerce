@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductList } from 'src/app/interface/interface.component';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-new-product',
@@ -22,6 +23,7 @@ export class AddNewProductComponent implements OnInit {
     totalQuantity: 0,
   };
   constructor(
+    private _snackBar: MatSnackBar,
     private _productListService: ProductListService,
     private _route: Router
   ) {
@@ -36,7 +38,9 @@ export class AddNewProductComponent implements OnInit {
     productDescription: new FormControl(''),
     productImageLink: new FormControl(''),
   });
-
+  openSnackBar(message: string) {
+    this._snackBar.open(message);
+  }
   newGuid() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
       /[xy]/g,
@@ -48,13 +52,17 @@ export class AddNewProductComponent implements OnInit {
     );
   }
   addNewProduct() {
-    this.newItem.id = this.newGuid();
-    this.newItem.title = this.addProduct.value.productName;
-    this.newItem.price = this.addProduct.value.productPrice;
-    this.newItem.availableQuantity = this.addProduct.value.productQuantity;
-    this.newItem.description = this.addProduct.value.productDescription;
-    this.newItem.image = this.addProduct.value.productImageLink;
-    this._productListService.sendProductList(this.newItem, 'Add');
+    let newItem: ProductList = {
+      id: this.newGuid(),
+      title: this.addProduct.value.productName,
+      price: this.addProduct.value.productPrice,
+      availableQuantity: this.addProduct.value.productQuantity,
+      totalQuantity: this.addProduct.value.productQuantity,
+      description: this.addProduct.value.productDescription,
+      image: this.addProduct.value.productImageLink,
+    };
+    this._productListService.sendProductList(newItem, 'Add');
     this._route.navigate(['./product']);
+    this.openSnackBar('New Product Created.');
   }
 }

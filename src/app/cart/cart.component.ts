@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CartService } from './../services/cart.service';
 import { ProductList, Cart } from './../interface/interface.component';
 import { Component, OnInit } from '@angular/core';
@@ -17,6 +18,7 @@ export class CartComponent implements OnInit {
   cartValue: number;
   cartItem: Cart[];
   constructor(
+    private _snackBar: MatSnackBar,
     private _productservice: ProductListService,
     private _cartService: CartService,
     private route: Router,
@@ -33,6 +35,9 @@ export class CartComponent implements OnInit {
   }
   goToDashboard() {
     this.route.navigate(['./dashboard']);
+  }
+  openSnackBar(message: string) {
+    this._snackBar.open(message);
   }
   goToRoute(product: ProductList) {
     this.route.navigate(['./dashboard/' + product.id + '/product-detail']);
@@ -66,6 +71,7 @@ export class CartComponent implements OnInit {
       this.cartService.sendCartItem(item);
 
       this.cartService.sendCartPrice(this.products[index].price, true);
+      this.openSnackBar('Selected Product Added to Cart.');
     }
   }
   removeFromCart(_index: number) {
@@ -78,5 +84,6 @@ export class CartComponent implements OnInit {
     this.cartService.sendCartItem(item);
     this.cartService.sendCartPrice(this.products[index].price, false);
     this.cartService.sendCartValue(false);
+    this.openSnackBar('Selected Product Removed from Cart.');
   }
 }

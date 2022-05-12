@@ -44,6 +44,8 @@ export class ProductListService {
       totalQuantity: 50,
     },
   ];
+  defaultImage =
+    'http://www.independentmediators.co.uk/wp-content/uploads/2016/02/placeholder-image.jpg';
   private _productListSource = new BehaviorSubject<ProductList[]>(
     this.products
   );
@@ -51,12 +53,15 @@ export class ProductListService {
 
   sendProductList(newItem: ProductList, action: string) {
     const index = this.products.indexOf(newItem, 0);
+    if (action == 'Add') {
+      this.products.push(newItem);
+    }
     if (action == 'Delete') {
       this.products.splice(index, 1);
     } else if (action == 'Edit') {
       this.products[index].availableQuantity = newItem.availableQuantity;
       this.products[index].description = newItem.description;
-      this.products[index].image = newItem.image;
+      this.products[index].image = this.defaultImage;
       this.products[index].price = newItem.price;
       this.products[index].title = newItem.title;
       this.products[index].totalQuantity = newItem.totalQuantity;

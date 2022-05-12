@@ -1,0 +1,70 @@
+<div id="selise-contacts">
+  <mat-toolbar fxLayout="row">
+    <div class="selise-logo"></div>
+
+    <div class="menu">
+      <div class="menu-item" fxLayoutGap="30px">
+        <a (click)="GoToRoute('../dashboard')" class="dashboard">Language</a>
+        <a (click)="GoToRoute('../product')" class="product">Common</a>
+        <a (click)="GoToRoute('../cart')" class="my-cart">ARC</a>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <div class="contacts-overview">
+    
+    <div class="header" fxLayout="row" fxLayoutAlign="space-between">
+      <div class="header-left">
+        <p class="material-icons">arrow_back</p>
+    <a> Back to Store</a><br>
+        <p class="material-icons">contacts</p>
+      </div>
+      <div class="header-right">
+        <button mat-raised-button class="get-started-button">
+          Get Started Free
+        </button>
+        <p>Get 10,000 contacts for Free!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content" fxLayout="row" fxLayoutGap="45px">
+    <div class="general-overview">
+      <h1>General Overview</h1>
+      <p>Envisioned as a end to end contract management tool, 
+        SELISE Signature caters to the growing global demand for eSignatures from an interoperable, 
+        workflow-focused approach. Roll out documents for eSignatures of different legal weights as needed 
+        and view audit trails,completed contracts and signed document certificates.</p>
+        
+        <h1>Product Features</h1>
+        <h3>Seamless, Ceremonial - Simple signatures</h3>
+      <p>Simple eSignature by SELISE offers a seamless and ceremonial signing experience for signatories,
+        and can be used as an internal record-keeping tool for your organization.
+        An email address is all you need to view and sign the document.</p>
+        <h3>Legalilty through two factor authentication</h3>
+      <p>Advanced eSignature provides a higher level of trust and assurance as 
+        it uses unique signing keys for each signatory.<br><br> 
+      This directly links the user’s identity to the signed document 
+      such that anyone can verify it on their own using an industry-standard PDF reader.<br><br> 
+      Email and SMS-based two-factor authentication is necessary to sign the document.
+      </p>
+    </div>
+    <div class="app-detail">
+      <h2>App Details</h2>
+      <h5>Developer</h5>
+      <p>SELISE Digital Platforms</p>
+      <h5>App Version</h5>
+      <p>1.1.2</p>
+      <h5>Price (CHF)</h5>
+      <p>Free version available</p>
+      <h5>Supported Languages</h5>
+      <p>English, German</p>
+      <h5>Resources</h5>
+      <p>Product Website</p>
+
+    </div>
+  </div>
+  <div class="price-calculation">
+    <app-calculate-price></app-calculate-price>
+  </div>
+</div>

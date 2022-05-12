@@ -13,9 +13,35 @@
       <p fxLayoutAlign="center center">
         Available Quantity: {{ product.availableQuantity }}
       </p>
-      <button (click)="addToCart()" mat-raised-button class="add-to-cart">
-        ADD TO CART
-      </button>
+      <div>
+        <div
+          *ngIf="product.totalQuantity == product.availableQuantity"
+          fxLayoutAlign="center center"
+        >
+          <button (click)="addToCart()" mat-raised-button class="add-to-cart">
+            ADD TO CART
+          </button>
+        </div>
+
+        <mat-card-content
+          *ngIf="product.totalQuantity != product.availableQuantity"
+          fxLayoutAlign="center center"
+        >
+          <button
+            (click)="removeFromCart()"
+            mat-raised-button
+            class="minus-button"
+          >
+            -
+          </button>
+          <button mat-raised-button class="items-in-cart">
+            {{ product.totalQuantity - product.availableQuantity }}
+          </button>
+          <button (click)="addToCart()" mat-raised-button class="plus-button">
+            +
+          </button>
+        </mat-card-content>
+      </div>
     </div>
   </div>
 </div>

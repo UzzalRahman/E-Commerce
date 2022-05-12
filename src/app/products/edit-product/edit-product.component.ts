@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductList } from 'src/app/interface/interface.component';
 import { ProductListService } from 'src/app/services/product-list.service';
@@ -15,6 +16,7 @@ export class EditProductComponent implements OnInit {
   productId: string;
   productIndex: number;
   constructor(
+    private _snackBar: MatSnackBar,
     private _productListService: ProductListService,
     private _route: Router,
     private _activatedRoute: ActivatedRoute
@@ -39,6 +41,9 @@ export class EditProductComponent implements OnInit {
     this.initiateFormValue(this.product);
   }
 
+  openSnackBar(message: string) {
+    this._snackBar.open(message);
+  }
   initiateFormValue(currentProduct: ProductList) {
     this.addProduct.get('productName').setValue(currentProduct.title);
     this.addProduct.get('productPrice').setValue(currentProduct.price);
@@ -59,6 +64,7 @@ export class EditProductComponent implements OnInit {
     this.product.image = this.addProduct.value.productImageLink;
     this.product.totalQuantity = this.addProduct.value.productQuantity;
     this._productListService.sendProductList(this.product, 'Edit');
+    this.openSnackBar('Product saved successfully.');
     this._route.navigate(['./product']);
   }
 }

@@ -33,7 +33,7 @@
       .product-image:hover {
         height: 300px;
         display: block;
-        padding-right: 10.8%;
+        width: 100%;
       }
     }
     .ImageAndClickButton {
@@ -49,8 +49,8 @@
 
       .product-image {
         height: 300px;
+        width: 100%;
         display: block;
-        padding-right: 10.8%;
       }
 
       .product-detail:hover {
