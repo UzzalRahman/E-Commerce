@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -29,8 +30,12 @@ import { EditProductComponent } from './products/edit-product/edit-product.compo
 import { MatMenuModule } from '@angular/material/menu';
 import { CartMenuComponent } from './header/cart-menu/cart-menu.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { SeliseContactsComponent } from './office/selise-contacts/selise-contacts.component';
-import { CalculatePriceComponent } from './office/calculate-price/calculate-price.component';
+// import { SeliseContactsComponent } from './office/selise-contacts/selise-contacts.component';
+// import { CalculatePriceComponent } from './office/calculate-price/calculate-price.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { SeliseContactsComponent } from './Office/selise-contacts/selise-contacts.component';
+import { CalculatePriceComponent } from './Office/calculate-price/calculate-price.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +48,7 @@ import { CalculatePriceComponent } from './office/calculate-price/calculate-pric
     DeleteProductComponent,
     EditProductComponent,
     CartMenuComponent,
-    SeliseContactsComponent,
+     SeliseContactsComponent,
     CalculatePriceComponent,
   ],
   imports: [
@@ -53,6 +58,7 @@ import { CalculatePriceComponent } from './office/calculate-price/calculate-pric
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
+    CommonModule,
 
     MatToolbarModule,
     MatBadgeModule,
@@ -64,6 +70,8 @@ import { CalculatePriceComponent } from './office/calculate-price/calculate-pric
     MatIconModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatTabsModule,
+    MatButtonToggleModule,
   ],
   providers: [ProductListService, CartService],
   bootstrap: [AppComponent],

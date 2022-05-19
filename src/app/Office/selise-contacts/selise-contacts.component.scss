@@ -1,11 +1,54 @@
-body{
-    margin:0 !important;
-    padding:0 !important;
+*:not(mat-icon) {
+  font-family: "Nunito" !important;
 }
-#selise-contacts{
-    .mat-toolbar {  
-    background-color: #FFFFFF;
-    padding-left:10%;
+::ng-deep {
+  .mat-tab-label {
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.0044em;
+    color: #696d70;
+    opacity: 1 !important;
+    height: 64px !important;
+    min-width: 136px !important;
+    padding: 0 0 !important;
+  }
+  .mat-tab-nav-bar {
+    border-bottom: 0 !important;
+  }
+  .mat-tab-header {
+    border-bottom: 0 !important;
+  }
+  .mat-tab-label:focus:not(.mat-tab-disabled) {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.007em;
+    color: #008af1;
+  }
+  .mat-ink-bar {
+    background-color: #008af1 !important;
+  }
+}
+
+@media screen and (max-width: 1279) {
+  #selise-contacts {
+    .main-content {
+      .app-detail {
+        padding: 50px 250px;
+      }
+    }
+  }
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#selise-contacts {
+  .mat-toolbar {
+    background-color: #ffffff;
+    padding-left: 98px;
     height: 64px;
     width: 100%;
     box-shadow: 0px 0px 1px 0px;
@@ -14,69 +57,228 @@ body{
     font-weight: 200;
     opacity: 0.7;
     justify-content: space-between;
-        .selise-logo {
-        background-image: url(https://az-cdn.selise.biz/selisecdn/cdn/arc2/arc2-logo.svg);
-        
-        height: 43px;
-        width: 100px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        cursor: pointer;
-        }
-    }
-    .toolbar{
-        height:64px;
-        // background-color: red;
-    }
-    .contacts-overview{
-        .material-icons{
+    .selise-logo {
+      background-image: url(https://az-cdn.selise.biz/selisecdn/cdn/arc2/arc2-logo.svg);
 
+      height: 43px;
+      width: 100px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      cursor: pointer;
+    }
+    .menu {
+      .menu-item {
+        align-items: center;
+        .language,
+        .marketplace,
+        .arc {
+          cursor: pointer;
         }
-        .header{
-            padding-left:150px;
-            height:276px;
-            // background-color:blue;
-            .header-right{
-                padding-top:80px;
-                text-align: end;
-                padding-right: 150px;
-                .get-started-button{
+        .language-icon{
+          height:24px;
+          width:24px;
+          background: url("../../../assets/Icons/language_24px.svg");
+          background-repeat: no-repeat;
+        }
+        .marketplace-icon{
+          height:24px;
+          width:24px;
+          background: url("../../../assets/Icons/icn_marketplace.svg");
+        }
+        .arc-icon{
+          height:48px;
+          width:152px;
+          background: url("../../../assets/Icons/Frame\ 701.svg");
+        }
+      }
+    }
+  }
+  .toolbar {
+    height: 64px;
+    // background-color: red;
+  }
+  .selise-signature {
+    .contacts-overview {
+      // padding-left: 150px;
+      padding: 0 150px;
+      height: 276px;
+      padding-top: 26px;
+      background-color: #f8f9f9;
+      .left {
+        .icon .arrow-back {
+          cursor: pointer;
+          margin: 0;
+          margin-top: 3px;
+          height: 11px;
+          width: 17px;
+          background: url("../../../assets/Icons/Vector.svg");
+          background-repeat: no-repeat;
+        }
+        .icon p {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 0.0025em;
+          color: #12568a;
+          margin: 0;
+        }
+        .second-column {
+          margin-top: 34px;
+          .contacts-icon {
+            height: 100px;
+            width: 100px;
+            background: url("../../../assets/Icons/Frame\ 626546.svg");
+          }
+          .second-row {
+            margin-left: 32px;
+            max-width: 592px;
 
-                }
-                p{
-                    padding-top:12px;
-                }
+            .header {
+              font-weight: 700;
+              font-size: 32px;
+              line-height: 43px;
+              color: #12568a;
             }
-        }
-    }
-    .main-content{
-        border:2px solid red;
-        height:1239px;
-        .general-overview{
-            width:35%;
-            // background-color:green;
-        }
-        .app-detail{
-            background-color: #F8F9F9;
-            height:436px;
-            width:15%;
-            padding:24px;
-            margin-right:10%;
-            margin-top:32px;
-            h5{
-                color:  #06375C;
-                font-weight: 700;
-                font-size: 14px;
-                margin-bottom: 4px;;
+            .content {
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 26px;
+              letter-spacing: 0.0044em;
+              color: #303233;
             }
-            p{
-                font-weight: 400;
-                font-size: 16px;
-                margin-bottom:16px;
-            }
+          }
         }
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-top: 80px;
+        .get-started-button {
+          padding: 16px 32px;
+          background-color: #008af1;
+          gap: 8px;
+          box-shadow: 0px 1px 1.41px rgba(30, 31, 32, 0.2);
+          border-radius: 4px;
+
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 16px;
+          display: flex;
+          letter-spacing: 0.5px;
+          text-transform: capitalize;
+          color: #ffffff;
+        }
+        p {
+          padding-top: 12px;
+        }
+      }
     }
-    .price-calculation{
-        height:646px;
+    .tabs {
+      background-color: #f8f9f9;
+      padding: 0 0px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      .tab {
+        padding: 0 150px;
+        .overview {
+        }
+      }
     }
+  }
+  .main-content {
+    // border: 2px solid red;
+    padding: 32px 150px;
+    .product {
+      .image-and-tabs {
+        .image-with-arrow {
+          .mat-icon {
+            width: 32px;
+            height: 32px;
+          }
+          .left-arrow {
+            margin-left: 21px;
+            align-self: center;
+          }
+          .image {
+            width: 558px;
+            height: 348px;
+            background-color: blue;
+            margin: 0 44px;
+            background-image: url("../../../assets/Images/image-1.png");
+          }
+          .right-arrow {
+            align-self: center;
+          }
+        }
+        .image-tabs {
+          margin-left: 97px;
+          margin-top: 23px;
+          .card-1,
+          .card-2,
+          .card-3 {
+            cursor: pointer;
+            background-color: #696d70;
+            height: 90px;
+            width: 144px;
+          }
+          .selected-tab {
+            box-sizing: border-box;
+            border: 1px solid #008af1;
+          }
+          .card-1 {
+            background-image: url("../../../assets/Images/sub-images/sub-1.png");
+          }
+          .card-2 {
+            background-image: url("../../../assets/Images/sub-images/sub-2.png");
+          }
+          .card-3 {
+            background-image: url("../../../assets/Images/sub-images/sub-3.png");
+          }
+        }
+      }
+      .general-overview {
+        max-width: 655px;
+        margin-top: 61px;
+      }
+    }
+    .app-detail {
+      background-color: #f8f9f9;
+      width: 364px;
+      //height: 412px;
+      height: fit-content;
+      padding: 24px;
+      gap: 16px;
+      .main-heading {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 38px;
+        letter-spacing: 0.007em;
+        color: #06375c;
+        margin-bottom: 16px;
+      }
+
+      .header {
+        margin-bottom: 4px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.007em;
+        font-feature-settings: "liga" off;
+        color: #06375c;
+      }
+      .content {
+        margin-bottom: 16px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.0044em;
+        font-feature-settings: "liga" off;
+        color: #1e1f20;
+      }
+    }
+  }
+  .price-calculation {
+    height: 646px;
+  }
 }

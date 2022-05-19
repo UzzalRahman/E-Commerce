@@ -1,21 +1,23 @@
+* {
+  font-family: "Nunito" !important;
+}
 @media only screen and (max-width: 621px) {
   #calculate-price {
     .header {
     }
     .main-content {
-        .container-1{
-            width:100%;
-        }
-        .container-2{
-            flex:1;
-            width:90%;
-            margin-top: 40px;
-        }
+      .container-1 {
+        width: 100%;
+      }
+      .container-2 {
+        flex: 1;
+        width: 90%;
+        margin-top: 40px;
+      }
     }
   }
 }
 #calculate-price {
-  font-family: "Nunito", sans-serif;
   .header {
     margin-top: 48px;
     text-align: center;
@@ -39,23 +41,23 @@
         letter-spacing: 0.002em;
 
         .package {
+          box-sizing: border-box;
           margin-top: 24px;
           letter-spacing: 0.007em;
+          height: auto;
 
           border: 1px solid #d8e1e8;
           border-radius: 1000px;
           background-color: #f8fafb;
           font-size: 14px;
           .yearly-package {
-            display: inline-block;
-            background-color: #ffffff;
-            margin: 4px;
-            border: 1px solid #008af1;
-            border-radius: 1000px;
+            width: 49%;
             p {
+              cursor: pointer;
               line-height: 24px;
-              padding: 10px 61px;
-              margin: 0px;
+              padding: 14px 0;
+              text-align: center;
+              margin: 0;
               color: #252627;
               .save-more {
                 color: #008af1;
@@ -63,13 +65,28 @@
               }
             }
           }
-          .pay-monthly {
-            padding: 0 17%;
-            font-weight: 700;
-            font-size: 14px;
-            color: #4d5052;
-            line-height: 24px;
-            white-space: nowrap;
+          .monthly-package {
+            width: 49%;
+            p {
+              cursor: pointer;
+              padding: 14px 0;
+              text-align: center;
+              font-weight: 700;
+              font-size: 14px;
+              color: #4d5052;
+              line-height: 24px;
+              letter-spacing: 0.007em;
+              margin: 0;
+            }
+          }
+          .selected-package {
+            background-color: #ffffff;
+            margin: 4px;
+            border: 1px solid #008af1;
+            border-radius: 1000px;
+            p {
+              padding: 10px 0;
+            }
           }
         }
       }
@@ -84,11 +101,16 @@
         line-height: 26px;
         letter-spacing: 0.002em;
         .plans {
+          flex-wrap: wrap;
           margin-top: 24px;
-          width: 1000px;
           .card {
-            height: 98px;
+            cursor: pointer;
+            //  min-height: 98px;
+            height:120px;
             flex: 1;
+            padding-left: min(20px,50%);
+            padding-right: min(20px,50%);
+            white-space: nowrap;
             .plan {
               margin-top: 20px;
               text-align: center;
@@ -106,13 +128,19 @@
               margin-top: 12px;
             }
             height: 98px;
+            box-sizing: border-box;
             border: 1px solid #80c5f8;
+          }
+          .selected-plan {
+            box-sizing: border-box;
+            background: #f0f6fc;
+            border: 1.5px solid #008af1;
           }
         }
       }
       .line-2 {
         margin-top: 20px;
-        border:1px solid #D8E1E8
+        border: 1px solid #d8e1e8;
       }
       .add-ons {
         margin-top: 32px;
@@ -128,9 +156,9 @@
           display: inline-block;
           color: #008af1;
           text-align: end;
-          margin:0;
+          margin: 0;
           margin-left: 82%;
-          
+
           font-weight: 400;
           font-size: 24px;
         }
@@ -189,6 +217,7 @@
         border: 1px solid #d8e1e8;
       }
       .continue-button {
+        cursor: pointer;
         padding: 0 43%;
         text-align: center;
         margin: 32px auto;

@@ -2,66 +2,124 @@
   <mat-toolbar fxLayout="row">
     <div class="selise-logo"></div>
 
-    <div class="menu">
-      <div class="menu-item" fxLayoutGap="30px">
-        <a (click)="GoToRoute('../dashboard')" class="dashboard">Language</a>
-        <a (click)="GoToRoute('../product')" class="product">Common</a>
-        <a (click)="GoToRoute('../cart')" class="my-cart">ARC</a>
-      </div>
+    <div  class="menu">
+      <div class="menu-item" fxLayout="row" fxLayoutGap="30px">
+        <div class="language-icon"></div>
+        <div class="marketplace-icon"></div>
+        <div class="arc-icon"></div>
+    </div>
     </div>
   </mat-toolbar>
+  <div class="selise-signature">
+    <div class="contacts-overview" fxLayout="row" fxLayoutAlign="space-between">
+      <div class="left" >
+        <div class="icon" fxLayout="row" fxLayoutGap="11px">
+          <div class="arrow-back"></div>
+          <div><p>Back to Store</p></div>
+        </div>
 
-  <div class="contacts-overview">
-    
-    <div class="header" fxLayout="row" fxLayoutAlign="space-between">
-      <div class="header-left">
-        <p class="material-icons">arrow_back</p>
-    <a> Back to Store</a><br>
-        <p class="material-icons">contacts</p>
+        <div class="second-column" fxLayout="row">
+          <div>
+            <div class="contacts-icon"></div>
+          </div>
+          <div class="second-row">
+            <p class="header"> SELISE Signature</p>
+            <p class="content">
+              Manage all of your organization's customers and contacts using
+              easily mastered tools, and acquire more through API-driven data
+              connections.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="header-right">
+      <div class="right">
         <button mat-raised-button class="get-started-button">
           Get Started Free
         </button>
         <p>Get 10,000 contacts for Free!</p>
       </div>
     </div>
+    <div class="tabs">
+      <mat-tab-group class="tab">
+        <mat-tab class="overview" label="Overview"></mat-tab>
+        <mat-tab label="Features"></mat-tab>
+        <mat-tab label="Plans & Pricing"></mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
 
-  <div class="main-content" fxLayout="row" fxLayoutGap="45px">
-    <div class="general-overview">
-      <h1>General Overview</h1>
-      <p>Envisioned as a end to end contract management tool, 
-        SELISE Signature caters to the growing global demand for eSignatures from an interoperable, 
-        workflow-focused approach. Roll out documents for eSignatures of different legal weights as needed 
-        and view audit trails,completed contracts and signed document certificates.</p>
-        
+  <div class="main-content" fxLayout.lt-lg="column" fxLayout="row" fxLayoutAlign="space-between">
+    <div class="product">
+      <div class="image-and-tabs">
+        <div class="image-with-arrow" fxLayout="row">
+          <div (click)="ChangeTab('left')" class="left-arrow">
+            <mat-icon>arrow_left_alt</mat-icon>
+          </div>
+          <div class="image"></div>
+          <div (click)="ChangeTab('right')" class="right-arrow">
+            <mat-icon>arrow_right_alt</mat-icon>
+          </div>
+        </div>
+        <div class="image-tabs" fxLayout="row" fxLayoutGap="20px">
+          <div 
+          [ngClass]="{'selected-tab': selectedTab===1}"
+          class="card-1"
+          (click)="selectedTab=1"
+          ></div>
+          <div
+          [ngClass]="{'selected-tab': selectedTab===2}"
+          class="card-2"
+          (click)="selectedTab=2"
+          ></div>
+          <div
+          [ngClass]="{'selected-tab': selectedTab===3}"
+          class="card-3"
+          (click)="selectedTab=3"
+          ></div>
+        </div>
+      </div>
+      <div class="general-overview">
+        <h1>General Overview</h1>
+        <p>
+          Envisioned as a end to end contract management tool, SELISE Signature
+          caters to the growing global demand for eSignatures from an
+          interoperable, workflow-focused approach. Roll out documents for
+          eSignatures of different legal weights as needed and view audit
+          trails,completed contracts and signed document certificates.
+        </p>
+
         <h1>Product Features</h1>
         <h3>Seamless, Ceremonial - Simple signatures</h3>
-      <p>Simple eSignature by SELISE offers a seamless and ceremonial signing experience for signatories,
-        and can be used as an internal record-keeping tool for your organization.
-        An email address is all you need to view and sign the document.</p>
+        <p>
+          Simple eSignature by SELISE offers a seamless and ceremonial signing
+          experience for signatories, and can be used as an internal
+          record-keeping tool for your organization. An email address is all you
+          need to view and sign the document.
+        </p>
         <h3>Legalilty through two factor authentication</h3>
-      <p>Advanced eSignature provides a higher level of trust and assurance as 
-        it uses unique signing keys for each signatory.<br><br> 
-      This directly links the user’s identity to the signed document 
-      such that anyone can verify it on their own using an industry-standard PDF reader.<br><br> 
-      Email and SMS-based two-factor authentication is necessary to sign the document.
-      </p>
+        <p>
+          Advanced eSignature provides a higher level of trust and assurance as
+          it uses unique signing keys for each signatory.<br /><br />
+          This directly links the user’s identity to the signed document such
+          that anyone can verify it on their own using an industry-standard PDF
+          reader.<br /><br />
+          Email and SMS-based two-factor authentication is necessary to sign the
+          document.
+        </p>
+      </div>
     </div>
     <div class="app-detail">
-      <h2>App Details</h2>
-      <h5>Developer</h5>
-      <p>SELISE Digital Platforms</p>
-      <h5>App Version</h5>
-      <p>1.1.2</p>
-      <h5>Price (CHF)</h5>
-      <p>Free version available</p>
-      <h5>Supported Languages</h5>
-      <p>English, German</p>
-      <h5>Resources</h5>
-      <p>Product Website</p>
-
+      <h5 class="main-heading">App Details</h5>
+      <p class="header">Developer</p>
+      <p class="content">SELISE Digital Platforms</p>
+      <p class="header">App Version</p>
+      <p class="content">1.1.2</p>
+      <p class="header">Price (CHF)</p>
+      <p class="content">Free version available</p>
+      <p class="header">Supported Languages</p>
+      <p class="content">English, German</p>
+      <p class="header">Resources</p>
+      <p class="content">Product Website</p>
     </div>
   </div>
   <div class="price-calculation">
